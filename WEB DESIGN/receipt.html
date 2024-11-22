@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AustraFound | Order Receipt</title>
+  <link rel="stylesheet" href="receipt.css" />
+ </head>
+ <body>
+  <div id="receipt-container">
+   <h1>Order Receipt</h1>
+   <div id="receipt-content">
+    <!-- Receipt will be populated here -->
+   </div>
+   <button onclick="window.print()">Print Receipt</button>
+   <a href="AF.html"><button>Return to Home</button></a>
+  </div>
+
+  <script>
+   // Get receipt data from localStorage
+   const receiptData = JSON.parse(localStorage.getItem("receiptData"));
+
+   if (receiptData) {
+    const receiptContent = document.getElementById("receipt-content");
+    receiptContent.innerHTML = `
+     <h2>Order #${receiptData.orderNumber}</h2>
+     <p><strong>Date:</strong> ${receiptData.orderDate} ${
+     receiptData.orderTime
+    }</p>
+     <p><strong>Name:</strong> ${receiptData.name}</p>
+     <p><strong>Email:</strong> ${receiptData.email}</p>
+     <p><strong>Shipping Address:</strong> ${receiptData.address}</p>
+     
+     <h3>Order Details</h3>
+     <p><strong>Total Items:</strong> ${receiptData.orderDetails.totalItems}</p>
+     <p><strong>Total Amount:</strong> RM${
+      receiptData.orderDetails.totalPrice
+     }</p>
+     
+     <h3>Items Purchased</h3>
+     <ul>
+      ${receiptData.orderDetails.items
+       .map(
+        (item) => `
+       <li>${item.name} - RM${item.price} (Quantity: ${item.quantity})</li>
+      `
+       )
+       .join("")}
+     </ul>
+     
+     <p><strong>Payment Method:</strong> Card ending in ${
+      receiptData.paymentMethod.cardNumber
+     }</p>
+    `;
+   } else {
+    document.getElementById("receipt-content").innerHTML = `
+     <p>No receipt data found. Please complete your purchase first.</p>
+     <a href="AF.html"><button>Return to Home</button></a>
+    `;
+   }
+  </script>
+ </body>
+</html>

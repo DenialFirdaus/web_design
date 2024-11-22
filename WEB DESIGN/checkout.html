@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AustraFound | Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <img src="af logo.png" alt="af logo" width="198" style="max-width: 200px;">
+        <nav>
+            <ul>
+				<li><a href="searchAF.html">Search</a></li>
+                <li><a href="AF.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+				<li><a href="accessories.html">Accessories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="addtocarts.html"><i class="fas fa-shopping-cart"></i>Add to Carts</a></li>
+				<li><a href="login.html">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout">
+        <h2>Checkout</h2>
+        <table id="checkout-items">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Size</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="checkout-body">
+                <!-- Checkout items will be inserted here dynamically -->
+            </tbody>
+        </table>
+        <div class="checkout-total">
+            <h3>Total: RM<span id="total-price">0.00</span></h3>
+        </div>
+        <button id="place-order-btn" class="shop-btn">Place Order</button>
+    </section>
+
+    <script>
+        // Retrieve cart data from localStorage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to render the checkout items
+        function renderCheckout() {
+            const checkoutBody = document.getElementById('checkout-body');
+            checkoutBody.innerHTML = ''; // Clear existing items
+
+            let total = 0;
+
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+
+                // Create cells for each product info
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>RM${item.price.toFixed(2)}</td>
+                    <td>${item.size}</td>
+                    <td>${item.quantity}</td>
+                    <td>RM${(item.price * item.quantity).toFixed(2)}</td>
+                `;
+
+                checkoutBody.appendChild(row);
+
+                // Update total price
+                total += item.price * item.quantity;
+            });
+
+            // Update total price in the DOM
+            document.getElementById('total-price').innerText = total.toFixed(2);
+        }
+
+        // Initial render of the checkout items
+        renderCheckout();
+
+        // Place Order button functionality
+        document.getElementById('place-order-btn').addEventListener('click', function() {
+            // Store cart and total price in localStorage for the payment page
+            localStorage.setItem('order', JSON.stringify({
+                items: cart,
+                total: document.getElementById('total-price').innerText
+            }));
+
+            // Redirect to the payment page
+            window.location.href = 'payment.html';
+        });
+    </script>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 AustraFound. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

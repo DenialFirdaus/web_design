@@ -1,0 +1,161 @@
+/* General Styles */
+body {
+ font-family: "Arial", sans-serif;
+ margin: 0;
+ padding: 0;
+ background-image: url("checkoutimg.jpg"); /* Replace with your image path */
+ background-size: cover;
+ background-position: center;
+ color: #333; /* Dark text color for readability */
+}
+
+header {
+ background-image: url(".jpg"); /* Replace with your image path */
+ background-size: cover;
+ background-position: center;
+ color: #fff;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 20px;
+}
+
+header img {
+ width: 150px; /* Logo width */
+}
+
+nav ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ justify-content: center;
+ gap: 10px;
+}
+
+nav ul li {
+ display: inline;
+}
+
+nav ul li a {
+ color: white;
+ text-decoration: none;
+ font-size: 16px;
+ padding: 8px 15px;
+ border-radius: 5px;
+ transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+ background-color: #ff6600;
+}
+
+/* Checkout Section */
+.checkout {
+ max-width: 1000px;
+ margin: 40px auto;
+ padding: 32px;
+ background-color: rgba(255, 255, 255, 0.95);
+ border-radius: 16px;
+ box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+ backdrop-filter: blur(8px);
+}
+
+h2 {
+ text-align: center;
+ color: #1a1a1a;
+ font-size: 2.2rem;
+ margin-bottom: 32px;
+ font-weight: 600;
+}
+
+table {
+ width: 100%;
+ border-collapse: separate;
+ border-spacing: 0 8px;
+ margin: 24px 0;
+}
+
+th {
+ padding: 16px;
+ text-align: left;
+ background-color: transparent;
+ color: #666;
+ font-weight: 500;
+ text-transform: uppercase;
+ font-size: 0.9rem;
+ letter-spacing: 0.5px;
+}
+
+td {
+ padding: 20px 16px;
+ background-color: #f8f9fa;
+ border: none;
+}
+
+tr td:first-child {
+ border-radius: 12px 0 0 12px;
+}
+
+tr td:last-child {
+ border-radius: 0 12px 12px 0;
+}
+
+tr:hover td {
+ background-color: #f0f1f2;
+ transform: scale(1.01);
+ transition: all 0.2s ease;
+}
+
+.checkout-total {
+ text-align: right;
+ margin: 32px 0;
+ padding: 24px;
+ background-color: #f8f9fa;
+ border-radius: 12px;
+}
+
+.checkout-total h3 {
+ font-size: 1.5rem;
+ color: #1a1a1a;
+ margin: 0;
+}
+
+/* Button Styles */
+.shop-btn {
+ display: block;
+ width: 100%;
+ padding: 18px;
+ background-color: #1a1a1a;
+ color: #fff;
+ border: none;
+ border-radius: 12px;
+ font-size: 1.1rem;
+ font-weight: 500;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+}
+
+.shop-btn:hover {
+ background-color: #2ecc71;
+ transform: translateY(-2px);
+ box-shadow: 0 6px 20px rgba(46, 204, 113, 0.2);
+}
+
+.shop-btn:active {
+ transform: translateY(0);
+}
+
+/* Footer Styles */
+footer {
+ background-color: #000; /* Black footer */
+ color: #fff; /* White text */
+ text-align: center; /* Center text */
+ padding: 20px; /* Padding */
+ position: relative; /* Positioned relative for better flow */
+ bottom: 0;
+ width: 100%; /* Full width */
+ margin-top: 108px;
+}

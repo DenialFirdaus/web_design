@@ -1,0 +1,241 @@
+/* General Styling */
+body {
+ font-family: "Arial", sans-serif;
+ margin: 0;
+ padding: 0;
+ background-image: url("cartback.jpg"); /* Replace with your image path */
+ background-size: cover;
+ background-position: center;
+ color: #333;
+}
+
+/* Header Styling */
+header {
+ color: #fff;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 20px;
+}
+
+header img {
+ width: 150px; /* Logo width */
+}
+
+nav ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ justify-content: center;
+ gap: 10px;
+}
+
+nav ul li {
+ display: inline;
+}
+
+nav ul li a {
+ color: white;
+ text-decoration: none;
+ font-size: 16px;
+ padding: 8px 15px;
+ border-radius: 5px;
+ transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+ background-color: #ff6600;
+}
+
+/* Payment Section Styling */
+.payment {
+ max-width: 700px;
+ margin: 40px auto;
+ padding: 30px;
+ background-color: #ffffff;
+ border-radius: 16px;
+ box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.payment h2 {
+ font-size: 32px;
+ color: #2d3748;
+ margin-bottom: 30px;
+ text-align: center;
+ font-weight: 600;
+}
+
+.payment h3 {
+ font-size: 24px;
+ color: #4a5568;
+ margin: 20px 0;
+ font-weight: 500;
+}
+
+.payment label {
+ display: block;
+ margin-bottom: 8px;
+ font-size: 14px;
+ color: #4a5568;
+ font-weight: 500;
+}
+
+.payment input[type="text"],
+.payment input[type="email"] {
+ width: 95%;
+ padding: 14px;
+ margin-bottom: 24px;
+ border: 2px solid #e2e8f0;
+ border-radius: 10px;
+ font-size: 16px;
+ transition: all 0.3s ease;
+}
+
+.payment input[type="text"]:focus,
+.payment input[type="email"]:focus {
+ outline: none;
+ border-color: #4299e1;
+ box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+.payment .pay-btn {
+ width: 100%;
+ padding: 16px;
+ background-color: #4299e1;
+ color: white;
+ font-size: 18px;
+ font-weight: 600;
+ border: none;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: all 0.3s ease;
+}
+
+.payment .pay-btn:hover {
+ background-color: #3182ce;
+ transform: translateY(-1px);
+}
+
+/* Footer Styling */
+footer {
+ background-color: black;
+ color: white;
+ text-align: center;
+ padding: 15px 0;
+ font-size: 14px;
+ position: relative;
+ bottom: 0;
+ width: 100%;
+}
+/* Payment and Receipt Section */
+section.receipt {
+ max-width: 600px;
+ margin: 30px auto;
+ padding: 20px;
+ background-color: white;
+ border-radius: 8px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2,
+h3 {
+ color: #007bff;
+ margin-bottom: 15px;
+ text-align: center;
+}
+
+label {
+ display: block;
+ font-weight: bold;
+ margin-bottom: 5px;
+}
+/* Receipt Styles */
+.receipt,
+.modal-content {
+ max-width: 500px;
+ width: 100%;
+ background-color: #ffffff;
+ padding: 30px;
+ border-radius: 16px;
+ box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+ font-family: Arial, sans-serif;
+ line-height: 1.6;
+ color: #2d3748;
+ border: none;
+}
+
+.receipt h2,
+.modal-content h3 {
+ font-size: 24px;
+ font-weight: 600;
+ color: #2d3748;
+ margin-bottom: 20px;
+ text-align: center;
+ border-bottom: 2px solid #e2e8f0;
+ padding-bottom: 15px;
+}
+
+.receipt p {
+ margin: 12px 0;
+ font-size: 16px;
+ color: #4a5568;
+}
+
+.receipt p strong {
+ color: #2d3748;
+ font-weight: 600;
+}
+
+.receipt-section .item,
+.modal-content .item {
+ display: flex;
+ justify-content: space-between;
+ font-size: 14px;
+ padding: 5px 0;
+}
+
+.receipt-section .item span,
+.modal-content .item span {
+ color: #333333;
+}
+
+/* Order Summary */
+#order-summary,
+#receipt-summary {
+ background-color: #f7fafc;
+ padding: 20px;
+ margin-top: 24px;
+ border: none;
+ border-radius: 12px;
+}
+
+#order-summary p,
+#receipt-summary p {
+ font-size: 14px;
+ color: #444444;
+}
+
+/* Footer Note */
+.receipt p.footer-note {
+ font-size: 14px;
+ color: #718096;
+ text-align: center;
+ border-top: 2px solid #e2e8f0;
+ padding-top: 15px;
+ margin-top: 20px;
+}
+
+.close-btn {
+ color: #718096;
+ position: absolute;
+ top: 15px;
+ right: 20px;
+ font-size: 24px;
+ cursor: pointer;
+ transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+ color: #2d3748;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>AustraFound | Search</title>
+
+  <!-- Link to CSS file -->
+  <link rel="stylesheet" href="searchAFcss.css" />
+  <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+ </head>
+ <body>
+  <!-- Header Section -->
+  <header>
+   <img src="af logo.png" alt="af logo" width="198" style="max-width: 200px" />
+
+   <nav>
+    <ul>
+     <li>
+      <form id="searchForm" class="search-form">
+       <div class="search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input
+         type="text"
+         placeholder="Search products..."
+         name="query"
+         id="searchInput"
+         class="search-input" />
+        <button type="submit" class="search-btn">
+         <i class="fas fa-arrow-right"></i>
+        </button>
+       </div>
+      </form>
+     </li>
+     <li><a href="AF.html">Home</a></li>
+     <li><a href="men.html">Men</a></li>
+     <li><a href="women.html">Women</a></li>
+     <li><a href="accessories.html">Accessories</a></li>
+     <li><a href="contact.html">Contact</a></li>
+     <li><a href="addtocarts.html">Add to Carts</a></li>
+     <li><a href="login.html">Log in</a></li>
+    </ul>
+   </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+   <div class="hero-text">
+    <h1>What are looking for?</h1>
+    <p>No results found for your query.</p>
+   </div>
+  </section>
+
+  <!-- Add this before closing body tag -->
+  <div id="searchResults" class="product-grid">
+   <!-- Search results will be displayed here -->
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+   <p>&copy; 2024 AustraFound. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+   document
+    .getElementById("searchForm")
+    .addEventListener("submit", function (e) {
+     e.preventDefault();
+     const searchQuery = document
+      .getElementById("searchInput")
+      .value.toLowerCase();
+
+     // Get all products from localStorage or initialize empty array
+     let allProducts = JSON.parse(localStorage.getItem("allProducts")) || [];
+
+     // Filter products based on search query
+     const results = allProducts.filter(
+      (product) =>
+       product.name.toLowerCase().includes(searchQuery) ||
+       product.category.toLowerCase().includes(searchQuery)
+     );
+
+     // Display results
+     const resultsContainer = document.getElementById("searchResults");
+     resultsContainer.innerHTML = "";
+
+     if (results.length === 0) {
+      document.querySelector(
+       ".hero-text p"
+      ).textContent = `No results found for "${searchQuery}"`;
+      return;
+     }
+
+     document.querySelector(
+      ".hero-text p"
+     ).textContent = `Found ${results.length} results for "${searchQuery}"`;
+
+     results.forEach((product) => {
+      resultsContainer.innerHTML += `
+                <div class="product">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>RM${product.price}</p>
+                    <label for="size-${product.id}">Size:</label>
+                    <select id="size-${product.id}" class="size-select">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                    <a href="addtocarts.html" class="cart-btn" 
+                       data-name="${product.name}" 
+                       data-price="${product.price}">Add to Cart</a>
+                </div>
+            `;
+     });
+    });
+  </script>
+ </body>
+</html>

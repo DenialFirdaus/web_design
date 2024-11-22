@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Sign Up</title>
+  <link rel="stylesheet" href="login.css" />
+ </head>
+ <body>
+  <!-- Header Section -->
+  <header>
+   <img src="af logo.png" alt="af logo" width="198" style="max-width: 200px" />
+   <nav>
+    <ul>
+     <li><a href="searchAF.html">Search</a></li>
+     <li><a href="AF.html">Home</a></li>
+     <li><a href="men.html">Men</a></li>
+     <li><a href="women.html">Women</a></li>
+     <li><a href="accessories.html">Accessories</a></li>
+     <li><a href="contact.html">Contact</a></li>
+     <li><a href="addtocarts.html">Add to Carts</a></li>
+     <li><a href="login.html">Log in</a></li>
+    </ul>
+   </nav>
+  </header>
+
+  <!-- Login & Sign Up Section -->
+  <section class="auth-section">
+   <div class="auth-container">
+    <div class="auth-left">
+     <h1>About Us</h1>
+     <p>
+      At AustraFound, we bring the bold, rebellious spirit of opium-inspired and
+      Y2K fashion to life. Our collections are designed for those who aren’t
+      afraid to stand out, blending iconic styles from the late '90s and early
+      2000s with a modern twist. From oversized jackets and graphic tees to
+      baggy jeans and statement accessories, our pieces capture the essence of
+      two eras known for their creativity, individuality, and flair. We believe
+      fashion is all about self-expression, and our mission is to empower you to
+      showcase your unique style. Whether you're channeling a grunge vibe,
+      embracing a futuristic look, or mixing both, AustraFound has everything
+      you need to make a statement. Join us in celebrating fashion that’s
+      timeless, bold, and unapologetically you.
+     </p>
+    </div>
+
+    <div class="auth-right">
+     <div class="auth-form-container">
+      <!-- Login Form -->
+      <div class="auth-form login-form active">
+       <h2>Log In</h2>
+       <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Username" />
+       </div>
+       <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Password" />
+        <span class="toggle-password">Show</span>
+       </div>
+       <div class="auth-options">
+        <label><input type="checkbox" /> Remember me</label>
+        <a href="#" class="forgot-password">Forgot Password?</a>
+       </div>
+       <button class="auth-btn login-btn">Log In</button>
+       <p>
+        Don't have an account? <a href="#" class="toggle-signup">Sign up</a>
+       </p>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div class="auth-form signup-form">
+       <h2>Sign Up</h2>
+       <div class="input-group">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" placeholder="First Name" />
+       </div>
+       <div class="input-group">
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" placeholder="Last Name" />
+       </div>
+       <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Email" />
+       </div>
+       <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="signup-password" placeholder="Password" />
+        <span class="toggle-password">Show</span>
+       </div>
+       <div class="input-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input
+         type="password"
+         id="confirm-password"
+         placeholder="Confirm Password" />
+        <span class="toggle-password">Show</span>
+       </div>
+       <label class="policy">
+        <input type="checkbox" /> I Agree with <a href="#">privacy</a> and
+        <a href="#">policy</a>
+       </label>
+       <button class="auth-btn signup-btn">Sign Up</button>
+       <p>
+        Already have an account? <a href="#" class="toggle-login">Sign in</a>
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Footer Section -->
+  <footer>
+   <p>&copy; 2024 AustraFound. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+   document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.querySelector(".login-form");
+    const signupForm = document.querySelector(".signup-form");
+    const toggleSignup = document.querySelector(".toggle-signup");
+    const toggleLogin = document.querySelector(".toggle-login");
+
+    // Toggle between login and signup forms
+    toggleSignup.addEventListener("click", () => {
+     loginForm.classList.remove("active");
+     signupForm.classList.add("active");
+    });
+
+    toggleLogin.addEventListener("click", () => {
+     signupForm.classList.remove("active");
+     loginForm.classList.add("active");
+    });
+
+    // Show password functionality
+    document.querySelectorAll(".toggle-password").forEach((togglePassword) => {
+     togglePassword.addEventListener("click", () => {
+      const passwordInput = togglePassword.previousElementSibling;
+      if (passwordInput.type === "password") {
+       passwordInput.type = "text";
+       togglePassword.textContent = "Hide";
+      } else {
+       passwordInput.type = "password";
+       togglePassword.textContent = "Show";
+      }
+     });
+    });
+
+    // Log In button functionality
+    document.querySelector(".login-btn").addEventListener("click", (event) => {
+     event.preventDefault();
+     const username = document.getElementById("username").value;
+     const password = document.getElementById("password").value;
+
+     // Check if username and password match your chosen credentials
+     if (username === "Denial" && password === "Denial55") {
+      // Replace with your chosen credentials
+      alert("Login successful!");
+      window.location.href = "AF.html"; // Redirects to home page or main page
+     } else {
+      alert("Invalid username or password.");
+     }
+    });
+
+    // Sign Up button functionality
+    document.querySelector(".signup-btn").addEventListener("click", (event) => {
+     event.preventDefault();
+     const firstName = document.getElementById("first-name").value;
+     const lastName = document.getElementById("last-name").value;
+     const email = document.getElementById("email").value;
+     const password = document.getElementById("signup-password").value;
+     const confirmPassword = document.getElementById("confirm-password").value;
+     const policyAgreed = document.querySelector(".policy input").checked;
+
+     // Simple validation for sign-up fields
+     if (
+      firstName &&
+      lastName &&
+      email &&
+      password &&
+      confirmPassword &&
+      policyAgreed
+     ) {
+      if (password === confirmPassword) {
+       alert("Sign-up successful!");
+       // Redirect or perform any additional actions here
+       window.location.href = "AF.html";
+      } else {
+       alert("Passwords do not match.");
+      }
+     } else {
+      alert("Please fill in all fields and agree to the privacy policy.");
+     }
+    });
+   });
+  </script>
+ </body>
+</html>

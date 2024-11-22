@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AustraFound | Contact</title>
+    <link rel="stylesheet" href="contact1.css">
+</head>
+<body>
+
+    <header>
+        <img src="af logo.png" alt="AustraFound Logo" width="198" style="max-width: 200px;">
+        <nav>
+            <ul>
+                <li><a href="searchAF.html">Search</a></li>
+                <li><a href="AF.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="accessories.html">Accessories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="addtocarts.html">Add to Carts</a></li>
+				<li><a href="login.html">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out to us using the form below or via our social media channels.</p>
+
+        <div class="contact-form">
+            <form onsubmit="handleSubmit(event)">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h3>Our Contact Information</h3>
+            <p>Email: austrafound0610@gmail.com</p>
+            <p>Phone: +6012-7201184</p>
+            <p>Address: 123 Fashion Avenue, Kuala Lumpur, Malaysia</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AustraFound. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent the form from submitting traditionally
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Store data in local storage
+            localStorage.setItem('contactName', name);
+            localStorage.setItem('contactEmail', email);
+            localStorage.setItem('contactMessage', message);
+
+            // Show a simple alert pop-up for confirmation
+            alert("Your message has been submitted!");
+
+            // Redirect to the home page
+            window.location.href = "AF.html"; // Replace "AF.html" with the actual home page URL
+        }
+    </script>
+
+</body>
+</html>

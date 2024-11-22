@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>AustraFound | Cart</title>
+  <link rel="stylesheet" href="addtocartcart.css" />
+  <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <!-- Include Font Awesome for icons -->
+  <script
+   src="https://kit.fontawesome.com/a076d05399.js"
+   crossorigin="anonymous"></script>
+ </head>
+ <body>
+  <!-- Header Section -->
+  <header>
+   <img src="af logo.png" alt="af logo" width="198" style="max-width: 200px" />
+   <nav>
+    <ul>
+     <li><a href="searchAF.html">Search</a></li>
+     <li><a href="AF.html">Home</a></li>
+     <li><a href="men.html">Men</a></li>
+     <li><a href="women.html">Women</a></li>
+     <li><a href="accessories.html">Accessories</a></li>
+     <li><a href="contact.html">Contact</a></li>
+     <li>
+      <a href="addtocarts.html"
+       ><i class="fas fa-shopping-cart"></i>Add to Carts</a
+      >
+     </li>
+     <li><a href="login.html">Log in</a></li>
+    </ul>
+   </nav>
+  </header>
+
+  <!-- Cart Section -->
+  <section class="cart">
+   <h2>Your Cart</h2>
+   <div class="cart-container">
+    <table id="cart-items">
+     <thead>
+      <tr>
+       <th>Product</th>
+       <th>Price</th>
+       <th>Size</th>
+       <th>Quantity</th>
+       <th>Total</th>
+       <th>Action</th>
+      </tr>
+     </thead>
+     <tbody id="cart-body">
+      <!-- Cart items will be inserted here dynamically -->
+     </tbody>
+    </table>
+    <div class="cart-summary">
+     <div class="cart-total">
+      <h3>Cart Summary</h3>
+      <div class="total-row">
+       <span>Subtotal:</span>
+       <span>RM<span id="total-price">0.00</span></span>
+      </div>
+     </div>
+     <button id="checkout-btn" class="shop-btn" data-action="checkout">
+      Proceed to Checkout
+     </button>
+     <a href="AF.html" class="shop-btn" id="continue-shopping"
+      >Continue Shopping</a
+     >
+    </div>
+   </div>
+   <!-- Empty cart message -->
+   <div id="empty-cart" class="empty-cart-message" style="display: none">
+    <p>Your cart is empty</p>
+    <a href="AF.html" class="shop-btn">Start Shopping</a>
+   </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+   <p>&copy; 2024 AustraFound. All Rights Reserved.</p>
+  </footer>
+
+  <script src="cart.js"></script>
+ </body>
+</html>

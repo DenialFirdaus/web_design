@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AustraFound | Store</title>
+    <link rel="stylesheet" href="afaf.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <img src="af logo.png" alt="af logo" width="198" style="max-width: 200px;">
+        <nav>
+            <ul>
+                <li><a href="searchAF.html">Search</a></li>
+                <li><a href="AF.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+				<li><a href="accessories.html">Accessories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="addtocarts.html">Add to Carts</a></li>
+				<li><a href="login.html">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+			<div class="slideshow-container">
+    <!-- Background Slides -->
+    <div class="mySlides fade" style="background-image: url('homeback1.jpg');"></div>
+    <div class="mySlides fade" style="background-image: url('men1.jpg');"></div>
+    <div class="mySlides fade" style="background-image: url('women1.jpg');"></div>
+
+    <!-- Overlay Content -->
+    <div class="overlay">
+        <h2>New Fall Collection 2024</h2>
+        <a href="#products" class="shop-btn">Shop Now</a>
+    </div>
+</div>
+
+<script src="slideshow.js"></script>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="products" id="products">
+        <h2>Trending Items</h2>
+        <div class="product-grid">
+
+            <!-- Product 1 -->
+            <div class="product">
+                <img src="men2.jpg" alt="Product 2.2">
+                <h3>Men's Collection</h3>
+                <a href="men.html" class="buy-btn">Explore More</a>
+            </div>
+
+             <!-- Product 2 -->
+            <div class="product">
+                <img src="acc1.jpeg" alt="Product 4">
+                <h3>Accessories's Collection</h3>
+                <a href="accessories.html" class="buy-btn">Explore More</a>
+            </div>
+			
+             <!-- Product 3 -->
+            <div class="product">
+                <img src="women10.jpeg" alt="Product 5.1">
+                <h3>Women's Collection</h3>
+                <a href="women.html" class="buy-btn">Explore More</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 AustraFound. All Rights Reserved.</p>
+    </footer>
+	<script>
+	let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    const slides = document.getElementsByClassName("mySlides");
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = "0";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    slides[slideIndex - 1].style.opacity = "1";
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
+}
+</script>
+</body>
+</html>
